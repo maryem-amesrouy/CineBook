@@ -1,4 +1,4 @@
-# CineBook — Starter kit pédagogique
+# CineBook — Starter kit pédagogiqu
 
 CineBook est une interface de réservation de cinéma conçue pour pratiquer JavaScript ES6+ et la manipulation du DOM. L’interface est prête, mais ses fonctionnalités dynamiques restent volontairement à développer.
 
