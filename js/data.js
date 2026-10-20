@@ -66,3 +66,4 @@ const films = [
 // La salle compte 5 rangées (A à E) de 6 sièges : 30 places.
 const rangees = ["A", "B", "C", "D", "E"];
 const siegesParRangee = 6;
+console.log(films[4])
