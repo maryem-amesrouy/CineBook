@@ -1,15 +1,12 @@
 "use strict";
 
 
-// function tims(duree){
-//     let heures= duree/60;
-//     let minutes= duree % 60;
-//     if (minutes === 0) {
-//         return heures + "h"
-//     }else{
-//         return heures + "h"+ minutes +"min"
-//     }
-// }
+function tims(duree){
+    let heures= duree/60
+    let minutes= duree % 60
+        return heures.toFixed(0) + "h"+ minutes.toFixed(0) +"min"
+    
+}
 
  const filmcontaner = document.getElementById("films-container")
 
@@ -23,7 +20,7 @@ films.forEach(film =>{
           <div class="p-4">
           <p class="text-xs font-bold uppercase tracking-wider text-cine-red">${film.genre}</p>
           <h3 class="mt-1 text-lg font-black">${film.titre}</h3>
-          <p class="mt-2 text-sm text-slate-500">${tims(duree)}</p>
+          <p class="mt-2 text-sm text-slate-500">${tims(film.duree)}</p>
           <button type="button" class="mt-4 w-full rounded-xl bg-cine-red px-4 py-3 font-extrabold text-white">Sélectionné</button>
           </div>
         </article>`
