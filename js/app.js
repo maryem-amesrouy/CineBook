@@ -1,47 +1,6 @@
 "use strict";
 
 
-function tims(duree){
-    let heures= duree/60
-    let minutes= duree % 60
-        return heures.toFixed(0) + "h"+ minutes.toFixed(0) +"min"
-    
-}
-
- const filmcontaner = document.getElementById("films-container")
-
-
-films.forEach(film =>{ 
-    let card=`<article class="overflow-hidden rounded-2xl border border-red-400 bg-white shadow-xl ring-2 ring-red-100" data-film-id=${film.id}>
-          <div class="relative">
-          <img src=${film.affiche} alt="Affiche de Mission Galaxie" class="aspect-[2/3] w-full object-cover">
-          <span class="absolute bottom-3 right-3 rounded-full bg-white/95 px-3 py-1 text-xs font-extrabold shadow-lg">${film.prix}</span>
-          </div>
-          <div class="p-4">
-          <p class="text-xs font-bold uppercase tracking-wider text-cine-red">${film.genre}</p>
-          <h3 class="mt-1 text-lg font-black">${film.titre}</h3>
-          <p class="mt-2 text-sm text-slate-500">${tims(film.duree)}</p>
-          <button type="button" class="mt-4 w-full rounded-xl bg-cine-red px-4 py-3 font-extrabold text-white">Sélectionné</button>
-          </div>
-        </article>`
-
-    filmcontaner.innerHTML+=card;
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // Bienvenue dans le fichier de travail principal de CineBook !
@@ -84,6 +43,30 @@ films.forEach(film =>{
 // MODÈLE : observez l'élément <article data-film-id="1"> dans index.html.
 // ÉCRIVEZ VOTRE CODE ICI :
 
+  const filmcontainer = document.getElementById("films-container")
+function tims(duree){
+    let heures= duree/60
+    let minutes= duree % 60
+        return heures.toFixed(0) + "h"+ minutes.toFixed(0) +"min"
+    
+}
+
+films.forEach(film =>{ 
+    let card=`<article class="overflow-hidden rounded-2xl border border-white-400 bg-white shadow-xl ring-2 ring-white" data-film-id=${film.id}>
+          <div class="relative">
+          <img src=${film.affiche} alt="Affiche de Mission Galaxie" class="aspect-[2/3] w-full object-cover">
+          <span class="absolute bottom-3 right-3 rounded-full bg-white/95 px-3 py-1 text-xs font-extrabold shadow-lg">${film.prix}</span>
+          </div>
+          <div class="p-4">
+          <p class="text-xs font-bold uppercase tracking-wider text-cine-red">${film.genre}</p>
+          <h3 class="mt-1 text-lg font-black">${film.titre}</h3>
+          <p class="mt-2 text-sm text-slate-500">${tims(film.duree)}</p>
+          <button type="button" id="bnt" class="mt-4 w-full rounded-xl border border-black px-4 py-3 font-extrabold text-black">Choisir se film</button>
+          </div>
+        </article>`
+
+    filmcontainer.innerHTML+=card;
+})
 
 // ==================================================
 // US02 - SÉLECTIONNER UN FILM
@@ -96,6 +79,14 @@ films.forEach(film =>{
 // PISTE : un changement de film doit aussi réinitialiser séance et sièges.
 // MODÈLE : #film-details contient déjà un exemple de détail à reproduire.
 // ÉCRIVEZ VOTRE CODE ICI :
+const boutand = document.getElementById("bnt");
+const titre = document.createElement("p");
+titre.textContent="selectionner"
+boutand.addEventListener("click", selectionner);
+function selectionner() {
+    document.appendChild("titre").innerHTML
+    
+}
 
 
 // ==================================================
