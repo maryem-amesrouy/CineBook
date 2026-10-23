@@ -61,7 +61,7 @@ films.forEach(film =>{
           <p class="text-xs font-bold uppercase tracking-wider text-cine-red">${film.genre}</p>
           <h3 class="mt-1 text-lg font-black">${film.titre}</h3>
           <p class="mt-2 text-sm text-slate-500">${tims(film.duree)}</p>
-          <button type="button" id="bnt" class="mt-4 w-full rounded-xl border border-black px-4 py-3 font-extrabold text-black">Choisir se film</button>
+          <button type="button" data-film-id="${film.id}" class="mt-4 w-full rounded-xl border border-black px-4 py-3 font-extrabold text-slate-700 bg-slate-50 buttonslc">Choisir ce film</button>
           </div>
         </article>`
 
@@ -79,16 +79,66 @@ films.forEach(film =>{
 // PISTE : un changement de film doit aussi réinitialiser séance et sièges.
 // MODÈLE : #film-details contient déjà un exemple de détail à reproduire.
 // ÉCRIVEZ VOTRE CODE ICI :
-const boutand = document.getElementById("bnt");
-const titre = document.createElement("p");
-titre.textContent="selectionner"
-boutand.addEventListener("click", selectionner);
-function selectionner() {
-    document.appendChild("titre").innerHTML
-    
+
+
+const boutand = document.querySelectorAll(".buttonslc");
+const btnsselect=[]
+let idFilm;
+var isSlc= false
+boutand.forEach(bntslc =>{
+    bntslc.addEventListener("click",function(e){
+        idFilm = e.target.dataset.filmId
+        isSlc = !isSlc
+        if (!isSlc) {
+         bntslc.classList.replace("bg-cine-red","bg-slate-50")
+        bntslc.classList.replace("text-white","text-slate-700")
+        bntslc.textContent= "Choisir ce film"
+        bntslc.classList.add("border-black","border") 
+        selectionFilm()
+        }else{
+        bntslc.classList.replace("bg-slate-50","bg-cine-red")
+        bntslc.classList.replace("text-slate-700","text-white")
+        bntslc.textContent= "Sélectionné"
+        bntslc.classList.remove("border", "border-black")
+        selectionFilm()
+    }
+    })
+})
+
+let btnselecti = document.querySelectorAll(".tnselectione")
+function selectionFilm(){
+    filmDetails.forEach(ele =>{
+        btnselecti.innerHTML +=`<img src=${ele.affiche} alt="Mission Galaxie" class="aspect-[2/3] w-24 rounded-xl object-cover shadow-md">
+        <div>
+        <div class="flex flex-wrap items-center gap-2">
+        <h3 class="text-xl font-black">${ele.titre}</h3>
+        <span class="rounded-full bg-red-100 px-3 py-1 text-xs font-bold text-red-700">${ele.prix}</span>
+        </div>
+        <p class="mt-2 text-sm font-semibold text-slate-500">Science-fiction · 2 h 04 min</p>
+        <p class="mt-3 leading-7 text-slate-600">${ele.description}</p></div>
+            </div>`
+    })
+
 }
 
 
+
+
+// let reserve=[];
+// let filmDetails = document.getElementById("film-details") 
+// card.forEach(selec =>{
+//     if (!isSlc) {
+//         filmSelecAffich.push[card]
+        
+//     }
+//     filmDetails.innerHTML+=filmSelecAffich
+
+// })
+
+
+
+
+ 
 // ==================================================
 // US03 - AFFICHER LES SÉANCES
 // ==================================================
